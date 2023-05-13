@@ -2,6 +2,10 @@
   display: none;
 }
 
+.overlay_open {
+  display: flex;
+}
+
 .modal {
   font-size: 12px;
   line-height: 1.25;
