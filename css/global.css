@@ -1,0 +1,65 @@
+html {
+  position: relative;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Inter;  
+  font-size: 14px;
+  line-height: calc(17 / 14);
+  font-weight: 500;
+  color: #25213B;
+}
+
+button {
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+button,
+input,
+textarea {
+  border: none;
+  background-color: transparent;
+}
+
+h1,
+h2,
+h3,
+p,
+figure,
+fieldset {
+  margin: 0;
+}
+
+fieldset {
+  border: none;
+}
+
+img,
+svg {
+  font-size: 0;
+}
+
+.container {
+  max-width: 1160px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 50px;
+}

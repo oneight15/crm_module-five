@@ -1,0 +1,82 @@
+.table {
+  background-color: #ffffff;
+  min-width: 1100px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table__header {
+  background-color: #F4F2FF;
+  font-size: 12px;
+  line-height: calc(15 / 12);
+}
+
+.table__cell {
+  padding: 19px 7px 17px;
+  border-bottom: 1px solid #D9D5EC;
+}
+
+.table__cell_id {
+  width: 100px;
+  padding-left: 15px;
+}
+
+.table__cell_name {
+  width: 305px;
+}
+
+.table__cell_category {
+  width: 175px;
+}
+
+.table__cell_units {
+  width: 67px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.table__cell_count {
+  width: 106px;
+  text-align: center;
+}
+
+.table__cell_price {
+  width: 95px;
+  text-align: right;
+}
+
+.table__cell_total {
+  width: 95px;
+  text-align: right;
+}
+
+.table__cell_icons {
+  width: 157px;
+  padding-right: 15px;
+  display: flex;
+  gap: 20px;
+  justify-content: end;
+  align-items: center;
+}
+
+.table-icon {
+  color: #6E6893;
+  transition: 0.3s all;
+}
+
+.table-icon:hover {
+  color: #640AA3;
+}
+
+.table__cell_head {
+  padding-top: 13px;
+  padding-bottom: 13px;
+  border-top: 1px solid #D9D5EC;
+  text-transform: uppercase;
+  min-height: 43px;
+}
+
+tr:hover {
+  color: #640AA3;
+  opacity: 0.7;
+}
