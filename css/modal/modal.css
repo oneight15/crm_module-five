@@ -4,6 +4,7 @@
 
 .overlay_open {
   display: flex;
+  align-items: center;
 }
 
 .modal {
