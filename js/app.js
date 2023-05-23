@@ -12,19 +12,22 @@ const addItem = document.querySelector('.cms__add-item');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = overlay.querySelector('.modal__close');
 const modal = document.querySelector('.modal');
+const tableBody = document.querySelector('.table__body');
 
 addItem.addEventListener('click', () => {
   overlay.classList.add('overlay_open');
 });
 
-modal.addEventListener('click', event => {
-  event.stopPropagation();
+overlay.addEventListener('click', e => {
+  const target = e.target;
+  if (target === overlay || target.closest('.modal__close')) {
+    overlay.classList.remove('overlay_open');
+  }
 });
 
-overlay.addEventListener('click', () => {
-  overlay.classList.remove('overlay_open');
-});
-
-btnCloseModal.addEventListener('click', () => {
-  overlay.classList.remove('overlay_open');
+tableBody.addEventListener('click', e => {
+  const target = e.target;
+  if (target.closest('.table-icon_type_delete')) {
+    target.closest('.table__row').remove();
+  }
 });

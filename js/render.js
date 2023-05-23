@@ -62,7 +62,7 @@ const goods = [
 const createRow = (obj) => {
   const tableBody = document.querySelector('.table__body');
   tableBody.insertAdjacentHTML('beforeend', `
-    <tr>
+    <tr class="table__row">
       <td class="table__cell table__cell_id">${obj.id}</td>
       <td class="table__cell table__cell_name">${obj.title}</td>
       <td class="table__cell table__cell_category">${obj.category}</td>
