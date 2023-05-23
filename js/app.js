@@ -24,10 +24,17 @@ overlay.addEventListener('click', e => {
     overlay.classList.remove('overlay_open');
   }
 });
-
+// модуль 5 урок 6 - реализация удаления строки из верстки и массива объектов
 tableBody.addEventListener('click', e => {
   const target = e.target;
+  const id = target.closest('.table__row').firstElementChild.textContent;
+  const index = goods.findIndex(elem => elem.id === +id);
+
   if (target.closest('.table-icon_type_delete')) {
+    if (index !== -1) {
+      goods.splice(index, 1);
+    }
     target.closest('.table__row').remove();
+    console.log(goods);
   }
 });
