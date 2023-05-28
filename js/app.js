@@ -1,7 +1,7 @@
 'use strict';
 
 const title = document.querySelector('.modal__title');
-const identText = document.querySelector('.modal__ident-text');
+const idValue = document.querySelector('.modal__ident-value');
 const identBtn = document.querySelector('.modal__ident-btn');
 const form = document.querySelector('.modal__form');
 const discountCheckbox = document.querySelector('.modal__input-checkbox');
@@ -73,14 +73,26 @@ const goods = [
   },
 ];
 
-addItem.addEventListener('click', () => {
+const addGoodData = good => {
+  goods.push(good);
+};
+
+const openModal = () => {
   overlay.classList.add('overlay_open');
+};
+
+const closeModal = () => {
+  overlay.classList.remove('overlay_open');
+};
+
+addItem.addEventListener('click', () => {
+  openModal();
 });
 
 overlay.addEventListener('click', e => {
   const target = e.target;
   if (target === overlay || target.closest('.modal__close')) {
-    overlay.classList.remove('overlay_open');
+    closeModal();
   }
 });
 
@@ -112,8 +124,8 @@ const createRow = (obj) => {
   const tableBody = document.querySelector('.table__body');
   tableBody.insertAdjacentHTML('beforeend', `
     <tr class="table__row">
-      <td class="table__cell table__cell_id">${obj.id}</td>
-      <td class="table__cell table__cell_name">${obj.title}</td>
+      <td class="table__cell table__cell_id">${obj.id ?? idValue.textContent}</td>
+      <td class="table__cell table__cell_name">${obj.title ?? obj.name}</td>
       <td class="table__cell table__cell_category">${obj.category}</td>
       <td class="table__cell table__cell_units">${obj.units}</td>
       <td class="table__cell table__cell_count">${obj.count}</td>
@@ -150,8 +162,27 @@ const createRow = (obj) => {
   `);
 };
 
+const addGoodPage = (good) => {
+  tableBody.append(createRow(good));
+};
+
+const formControl = () => {
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const newGood = Object.fromEntries(formData);
+
+    addGoodData(newGood);
+    addGoodPage(newGood);
+
+    form.reset();
+    closeModal();
+  });
+};
+
 const renderGoods = (arr) => {
   arr.map(elem => createRow(elem));
 };
 
+formControl();
 renderGoods(goods);
