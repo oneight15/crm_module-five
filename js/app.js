@@ -121,8 +121,9 @@ form.checkbox.addEventListener('click', () => {
 });
 
 const createRow = (obj) => {
-  const tableBody = document.querySelector('.table__body');
-  tableBody.insertAdjacentHTML('beforeend', `
+  const newTr = document.createElement('tr');
+  newTr.classList.add('table__row');
+  newTr.insertAdjacentHTML('beforeend', `
     <tr class="table__row">
       <td class="table__cell table__cell_id">${obj.id ?? idValue.textContent}</td>
       <td class="table__cell table__cell_name">${obj.title ?? obj.name}</td>
@@ -160,9 +161,12 @@ const createRow = (obj) => {
       </td>
     </tr>
   `);
-};
 
+  return newTr;
+};
+// модуль 5 урок 7 - добавление на страницу и в объект данных
 const addGoodPage = (good) => {
+  const tableBody = document.querySelector('.table__body');
   tableBody.append(createRow(good));
 };
 
@@ -172,8 +176,8 @@ const formControl = () => {
     const formData = new FormData(e.target);
     const newGood = Object.fromEntries(formData);
 
-    addGoodData(newGood);
     addGoodPage(newGood);
+    addGoodData(newGood);
 
     form.reset();
     closeModal();
@@ -181,8 +185,8 @@ const formControl = () => {
 };
 
 const renderGoods = (arr) => {
-  arr.map(elem => createRow(elem));
+  arr.map(elem => addGoodPage(elem));
 };
 
-formControl();
 renderGoods(goods);
+formControl();
