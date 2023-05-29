@@ -1,12 +1,13 @@
 'use strict';
 
+const totalPrice = document.querySelector('.total-price__sum');
 const title = document.querySelector('.modal__title');
 const idValue = document.querySelector('.modal__ident-value');
 const identBtn = document.querySelector('.modal__ident-btn');
 const form = document.querySelector('.modal__form');
 const discountCheckbox = document.querySelector('.modal__input-checkbox');
 const discountInput = document.querySelector('.modal__input_disabled');
-const totalPrice = document.querySelector('.modal .total-price__sum');
+const totalPriceModal = form.querySelector('.total-price__sum');
 // модуль 5 урок 5 - выполнение дз
 const addItem = document.querySelector('.cms__add-item');
 const overlay = document.querySelector('.overlay');
@@ -72,6 +73,10 @@ const goods = [
     },
   },
 ];
+// // модуль 5 урок 7 - функция подсчета общей стоимости
+const calculateTotalPrice = (arr) => {
+  totalPrice.textContent = `$ ${arr.reduce((sum, {price, count}) => sum + price * count, 0)}`;
+};
 
 const addGoodData = good => {
   goods.push(good);
@@ -109,6 +114,8 @@ tableBody.addEventListener('click', e => {
     target.closest('.table__row').remove();
     console.log(goods);
   }
+
+  calculateTotalPrice(goods);
 });
 
 // модуль 5 урок 7 - взаимодействие с checkbox скидки
@@ -178,14 +185,26 @@ const formControl = () => {
 
     addGoodPage(newGood);
     addGoodData(newGood);
+    calculateTotalPrice(goods);
 
     form.reset();
     closeModal();
   });
 };
+// считаем сумму в модальном окне
+modal.addEventListener('change', e => {
+  const target = e.target;
+  const countValue = form.count.value;
+  const priceValue = form.price.value;
+
+  if (target.name === 'count' || target.name === 'price') {
+    totalPriceModal.textContent = `$ ${countValue * priceValue}`;
+  }
+});
 
 const renderGoods = (arr) => {
   arr.map(elem => addGoodPage(elem));
+  calculateTotalPrice(arr);
 };
 
 renderGoods(goods);
