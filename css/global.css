@@ -17,6 +17,7 @@ body {
   line-height: calc(17 / 14);
   font-weight: 500;
   color: #25213B;
+  background-color: #F2F0F9;
 }
 
 button {

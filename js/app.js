@@ -78,6 +78,14 @@ const calculateTotalPrice = (arr) => {
   totalPrice.textContent = `$ ${arr.reduce((sum, {price, count}) => sum + price * count, 0)}`;
 };
 
+// обнуление стоимости и checkbox'а
+const modalReset = () => {
+  form.checkbox.removeAttribute('checked');
+  form.discount.setAttribute('disabled', 'disabled');
+  form.discount.classList.add('modal__input_disabled');
+  totalPriceModal.textContent = '$ 0';
+};
+
 const addGoodData = good => {
   goods.push(good);
 };
@@ -98,6 +106,8 @@ overlay.addEventListener('click', e => {
   const target = e.target;
   if (target === overlay || target.closest('.modal__close')) {
     closeModal();
+    form.reset();
+    modalReset();
   }
 });
 
@@ -187,6 +197,7 @@ const formControl = () => {
     addGoodData(newGood);
     calculateTotalPrice(goods);
 
+    modalReset();
     form.reset();
     closeModal();
   });
