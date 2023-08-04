@@ -106,8 +106,8 @@ overlay.addEventListener('click', e => {
   const target = e.target;
   if (target === overlay || target.closest('.modal__close')) {
     closeModal();
-    form.reset();
-    modalReset();
+    // form.reset();
+    // modalReset();
   }
 });
 
@@ -122,7 +122,7 @@ tableBody.addEventListener('click', e => {
       goods.splice(index, 1);
     }
     target.closest('.table__row').remove();
-    console.log(goods);
+    calculateTotalPrice(goods);
   }
 
   calculateTotalPrice(goods);
