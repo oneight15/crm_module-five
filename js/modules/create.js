@@ -14,7 +14,7 @@ const createRow = (obj) => {
       <td class="table__cell table__cell_price">$${obj.price}</td>
       <td class="table__cell table__cell_total">$${obj.count * obj.price}</td>
       <td class="table__cell table__cell_icons">
-        <button class="table-icon table-icon_type_pic" data-pic="./img/test.jpg">
+        <button class="table-icon table-icon_type_pic" data-pic="../../img/test.jpg">
           ${obj.hasOwnProperty('images') ?
           `<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.7778 2.22223H2.22223C1.92754 2.22223 1.64493 2.33929
