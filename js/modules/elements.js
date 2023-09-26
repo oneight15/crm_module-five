@@ -82,3 +82,5 @@ export const goods = [
     },
   },
 ];
+
+export const URL = 'https://grizzled-hip-wedge.glitch.me/api/goods';

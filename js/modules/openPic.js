@@ -9,6 +9,8 @@ const openPic = () => {
     const valueTop = (screen.height / 2) - 300;
     const valueLeft = (screen.width / 2) - 300;
 
+    console.log('клик');
+
     if (btnIcon) {
       const win = open('about:blank', '', `
         width=600,
