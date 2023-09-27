@@ -34,6 +34,7 @@
   gap: 20px;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #D9D5EC;
 }
 
 .cms__filter {

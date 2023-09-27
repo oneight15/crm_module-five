@@ -11,9 +11,12 @@
   line-height: calc(15 / 12);
 }
 
+.table__row {
+  border-bottom: 1px solid #D9D5EC;
+}
+
 .table__cell {
   padding: 19px 7px 17px;
-  border-bottom: 1px solid #D9D5EC;
 }
 
 .table__cell_id {
@@ -71,7 +74,6 @@
 .table__cell_head {
   padding-top: 13px;
   padding-bottom: 13px;
-  border-top: 1px solid #D9D5EC;
   text-transform: uppercase;
   min-height: 43px;
 }
