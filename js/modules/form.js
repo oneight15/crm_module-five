@@ -2,6 +2,7 @@ import * as elem from './elements.js';
 import calculateTotalPrice from './calculateTotal.js';
 import addGoodPage from './create.js';
 import * as controlModal from './modal.js';
+import httpRequest from './serverRequest.js';
 
 const modalReset = () => {
   elem.form.checkbox.removeAttribute('checked');
@@ -10,9 +11,9 @@ const modalReset = () => {
   elem.totalPriceModal.textContent = '$ 0';
 };
 
-const addGoodData = good => {
-  elem.goods.push(good);
-};
+// const addGoodData = good => {
+//   elem.goods.push(good);
+// };
 
 elem.form.checkbox.addEventListener('click', () => {
   elem.form.discount.toggleAttribute('disabled');
@@ -27,11 +28,35 @@ const formControl = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const newGood = Object.fromEntries(formData);
-    newGood.id = +Math.random().toString().substring(2, 10);
+    // newGood.id = +Math.random().toString().substring(2, 10);
+
+    httpRequest('https://grizzled-hip-wedge.glitch.me/api/goods', {
+      method: 'POST',
+      body: {
+        title: elem.form.name.value,
+        description: elem.form.description.value,
+        price: elem.form.price.value,
+        count: elem.form.count.value,
+        units: elem.form.units.value,
+        discount: elem.form.discount.value,
+        category: elem.form.category.value,
+      },
+      callback(err, data) {
+        if (err) {
+          console.warn(err, data);
+          elem.form.textContent = err;
+        }
+
+        elem.form.textContent = `Това успешно добавлен,  ${data.id}`;
+      },
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
     addGoodPage(newGood);
-    addGoodData(newGood);
-    calculateTotalPrice(elem.goods);
+    // addGoodData(newGood);
+    // calculateTotalPrice(elem.goods);
 
     modalReset();
     elem.form.reset();
@@ -49,19 +74,20 @@ elem.modal.addEventListener('change', e => {
   }
 });
 
-elem.tableBody.addEventListener('click', e => {
-  const target = e.target;
-  const id = target.closest('.table__row').firstElementChild.textContent;
-  const index = elem.goods.findIndex(elem => elem.id === +id);
+// нерабочий способ удаления товаров в текущий момент
+// elem.tableBody.addEventListener('click', e => {
+//   const target = e.target;
+//   const id = target.closest('.table__row').firstElementChild.textContent;
+//   const index = elem.goods.findIndex(elem => elem.id === +id);
 
-  if (target.closest('.table-icon_type_delete')) {
-    if (index !== -1) {
-      elem.goods.splice(index, 1);
-    }
-    target.closest('.table__row').remove();
-  }
+//   if (target.closest('.table-icon_type_delete')) {
+//     if (index !== -1) {
+//       elem.goods.splice(index, 1);
+//     }
+//     target.closest('.table__row').remove();
+//   }
 
-  calculateTotalPrice(elem.goods);
-});
+//   calculateTotalPrice(elem.goods);
+// });
 
 export default formControl;
