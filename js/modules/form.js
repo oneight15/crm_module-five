@@ -44,10 +44,11 @@ const formControl = () => {
       callback(err, data) {
         if (err) {
           console.warn(err, data);
-          elem.form.textContent = err;
+          // elem.form.textContent = err;
+          controlModal.activeError();
         }
 
-        elem.form.textContent = `Това успешно добавлен,  ${data.id}`;
+        // elem.form.textContent = `Това успешно добавлен,  ${data.id}`;
       },
       headers: {
         'Content-Type': 'application/json',
@@ -58,9 +59,9 @@ const formControl = () => {
     // addGoodData(newGood);
     // calculateTotalPrice(elem.goods);
 
-    modalReset();
-    elem.form.reset();
-    controlModal.closeModal();
+    // modalReset();
+    // elem.form.reset();
+    // controlModal.closeModal();
   });
 };
 
@@ -74,7 +75,7 @@ elem.modal.addEventListener('change', e => {
   }
 });
 
-// нерабочий способ удаления товаров в текущий момент
+// нерабочий способ удаления товаров в текущий момент разработки
 // elem.tableBody.addEventListener('click', e => {
 //   const target = e.target;
 //   const id = target.closest('.table__row').firstElementChild.textContent;

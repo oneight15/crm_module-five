@@ -6,6 +6,9 @@ export const addItem = document.querySelector('.cms__add-item');
 export const overlay = document.querySelector('.overlay');
 export const modal = document.querySelector('.modal');
 export const tableBody = document.querySelector('.table__body');
+export const errorClose = document.querySelector('.error-block__close');
+export const errorElement = document.querySelector('.modal__error-block');
+export const modalError = document.querySelector('.modal_error');
 
 // export const goods = [
 //   {
