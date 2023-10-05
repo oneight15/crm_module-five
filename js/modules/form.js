@@ -46,6 +46,12 @@ const formControl = () => {
           console.warn(err, data);
           // elem.form.textContent = err;
           controlModal.activeError();
+        } else {
+          addGoodPage(data);
+          calculateTotalPrice(...elem.rows);
+          modalReset();
+          elem.form.reset();
+          controlModal.closeModal();
         }
 
         // elem.form.textContent = `Това успешно добавлен,  ${data.id}`;
@@ -55,13 +61,7 @@ const formControl = () => {
       },
     });
 
-    addGoodPage(newGood);
     // addGoodData(newGood);
-    // calculateTotalPrice(elem.goods);
-
-    // modalReset();
-    // elem.form.reset();
-    // controlModal.closeModal();
   });
 };
 
