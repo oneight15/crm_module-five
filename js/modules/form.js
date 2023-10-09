@@ -48,7 +48,8 @@ const formControl = () => {
           controlModal.activeError();
         } else {
           addGoodPage(data);
-          calculateTotalPrice(...elem.rows);
+          elem.totalPriceSum.textContent =
+            +(elem.totalPriceSum.textContent) + (data.price * data.count);
           modalReset();
           elem.form.reset();
           controlModal.closeModal();

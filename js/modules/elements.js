@@ -9,5 +9,5 @@ export const tableBody = document.querySelector('.table__body');
 export const errorClose = document.querySelector('.error-block__close');
 export const errorElement = document.querySelector('.modal__error-block');
 export const modalError = document.querySelector('.modal_error');
-export const rows = document.querySelectorAll('.table__row');
+export const totalPriceSum = document.querySelector('.total-price__sum');
 export const URL = 'https://grizzled-hip-wedge.glitch.me/api/goods';

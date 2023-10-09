@@ -12,7 +12,7 @@
   line-height: 1.25;
   font-weight: 600;
   letter-spacing: 0.05em;
-  text-transform: uppercase; 
+  text-transform: uppercase;
   color: #6E6893;
   max-width: 792px;
   min-height: 613px;
@@ -30,8 +30,6 @@
   background-color: transparent;
   z-index: 5;
 }
-
-
 
 .modal__top-block {
   margin-bottom: 21px;
@@ -76,7 +74,7 @@
   gap: 12px 24px;
   grid-template-columns: repeat(2, 250px);
   grid-template-rows: repeat(4, 60px) 48px;
-  grid-template-areas: 
+  grid-template-areas:
   "name description"
   "category description"
   "units count"
@@ -276,20 +274,21 @@
   padding: 0 28px;
 }
 
+.total-price {
+  font-size: 18px;
+  line-height: calc(22 / 18);
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  color: #6D5BD0;
+}
+
 .total-price__text {
   font-size: 14px;
   line-height: calc(17 / 14);
   font-weight: 500;
   text-transform: none;
   letter-spacing: 0.1px;
-}
-
-.total-price__sum {
-  font-size: 18px;
-  line-height: calc(22 / 18);
-  font-weight: 700;
-  letter-spacing: -0.4px;
-  color: #6D5BD0;
+  color: #25213B;
 }
 
 .modal__submit {
