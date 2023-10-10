@@ -105,7 +105,7 @@
     <div class="modal">
       <div class="modal__top-block">
         <h2 class="modal__title">Добавить товар</h2>
-        <div class="modal__ident">
+        <div class="modal__ident-block">
           <p class="modal__ident">
             <span class="modal__ident-text">id: </span>
             <span class="modal__ident-value"></span>
@@ -119,6 +119,7 @@
         </div>
         
       </div>
+
       <form class="modal__form" action="https://jsonplaceholder.typicode.com/posts" method="post">
         <fieldset class="modal__fieldset">
           <div class="modal__field modal__field_name">
@@ -172,6 +173,7 @@
             <img class="modal__item-image" src="img/item.png" alt="Изображение добавленного товара">
           </div>
         </fieldset>
+        
         <div class="modal__bottom-block">
           <p class="modal__total-price total-price">
             <span class="total-price__text">Итоговая стоимость:</span>
@@ -180,12 +182,14 @@
           <button class="modal__submit" type="submit">Добавить товар</button>
         </div>
       </form>
+
       <button class="modal__close" type="button" aria-label="Закрыть модальное окно">
         <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M2 2L22 22" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
           <path d="M2 22L22 2" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
         </svg>                    
       </button>
+
       <div class="modal__error-block">
         <p class="error-block__text">Что-то пошло не так</p>
         <button class="error-block__close" type="button" aria-label="Закрыть окно ошибки">

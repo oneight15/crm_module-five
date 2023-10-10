@@ -1,5 +1,394 @@
 import * as elem from './elements.js';
 
+export const createOverlay = () => {
+  const overlay = document.createElement('div');
+  overlay.classList.add('overlay', 'overlay_open');
+
+  return overlay;
+};
+
+export const createModal = () => {
+  const modal = document.createElement('div');
+  modal.classList.add('modal');
+
+  return modal;
+};
+
+export const createModalTopBlock = () => {
+  const modalTopBlock = document.createElement('div');
+  modalTopBlock.classList.add('modal__top-block');
+
+  return modalTopBlock;
+};
+
+export const createModalTitle = () => {
+  const modalTitle = document.createElement('div');
+  modalTitle.classList.add('modal__title');
+  modalTitle.textContent = 'Добавить товар';
+
+  return modalTitle;
+};
+
+export const createModalIdentBlock = () => {
+  const modalIdentBlock = document.createElement('div');
+  modalIdentBlock.classList.add('modal__ident-block');
+
+  return modalIdentBlock;
+};
+
+export const createModalIdent = () => {
+  const modalIdent = document.createElement('p');
+  modalIdent.classList.add('modal__ident');
+
+  return modalIdent;
+};
+
+export const createModalIdentText = () => {
+  const modalIdentText = document.createElement('span');
+  modalIdentText.classList.add('modal__ident-text');
+  modalIdentText.textContent = 'id: ';
+
+  return modalIdentText;
+};
+
+export const createModalIdentValue = () => {
+  const modalIdentValue = document.createElement('span');
+  modalIdentValue.classList.add('modal__ident-value');
+
+  return modalIdentValue;
+};
+
+export const createModalIdentBtn = () => {
+  const modalIdentBtn = document.createElement('button');
+  modalIdentBtn.classList.add('modal__ident-block');
+  modalIdentBtn.type = 'button';
+  modalIdentBtn.innerHTML = `
+    <svg width="18" height="19" viewBox="0 0 18 19" fill="transparent" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13.5629 3.86078L15.6394 5.93629L13.5629 3.86078ZM14.8982
+        2.03233L9.28343 7.64709C8.99332 7.9368 8.79546 8.3059 8.7148
+        8.70789L8.19617 11.304L10.7923 10.7844C11.1942 10.704 11.5629
+        10.5069 11.8531 10.2167L17.4678 4.60196C17.6366 4.43324 17.7704
+        4.23293 17.8617 4.01248C17.953 3.79203 18 3.55576 18 3.31714C18
+        3.07853 17.953 2.84225 17.8617 2.6218C17.7704 2.40136 17.6366
+        2.20105 17.4678 2.03233C17.2991 1.8636 17.0988 1.72976 16.8784
+        1.63845C16.6579 1.54714 16.4216 1.50014 16.183 1.50014C15.9444
+        1.50014 15.7081 1.54714 15.4877 1.63845C15.2672 1.72976 15.0669
+        1.8636 14.8982 2.03233V2.03233Z" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M16.0394 13.2648V16.206C16.0394 16.726 15.8328 17.2248 15.4651
+        17.5925C15.0973 17.9602 14.5986 18.1668 14.0786 18.1668H3.29415C2.77411
+        18.1668 2.27537 17.9602 1.90765 17.5925C1.53993 17.2248 1.33334 16.726
+        1.33334 16.206V5.42157C1.33334 4.90154 1.53993 4.4028 1.90765
+        4.03508C2.27537 3.66735 2.77411 3.46077 3.29415 3.46077H6.23535"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round"/>
+    </svg>
+  `;
+
+  return modalIdentBtn;
+};
+
+export const createModalForm = () => {
+  const modalForm = document.createElement('form');
+  modalForm.classList.add('modal__form');
+
+  return modalForm;
+};
+
+export const createModalClose = () => {
+  const modalClose = document.createElement('button');
+  modalClose.type = 'button';
+  modalClose.ariaLabel = 'Закрыть модальное окно';
+  modalClose.classList.add('modal__close');
+  modalClose.innerHTML = `
+    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 2L22 22" stroke="currentColor" 
+        stroke-width="3" stroke-linecap="round"/>
+      <path d="M2 22L22 2" stroke="currentColor"
+        stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  `;
+
+  return modalClose;
+};
+
+export const createModalFieldset = () => {
+  const modalFieldset = document.createElement('fieldset');
+  modalFieldset.classList.add('modal__fieldset');
+
+  return modalFieldset;
+};
+
+const createLabel = () => {
+  const label = document.createElement('label');
+  label.classList.add('modal__label');
+
+  return label;
+};
+
+const createInput = () => {
+  const input = document.createElement('input');
+  input.classList.add('modal__input');
+
+  return input;
+};
+
+const createTextarea = () => {
+  const textarea = document.createElement('textarea');
+  textarea.classList.add('modal__input', 'modal__input_textar');
+
+  return textarea;
+};
+
+const createModalDiscount = () => {
+  const modalDiscount = document.createElement('div');
+  modalDiscount.classList.add('modal__discount');
+
+  const inputCheckbox = document.createElement('input');
+  inputCheckbox.classList.add('modal__input-checkbox');
+  inputCheckbox.type = 'checkbox';
+  inputCheckbox.name = 'checkbox';
+  inputCheckbox.ariaLabel = 'Применить скидку';
+
+  const modalInput = document.createElement('input');
+  modalInput.classList.add('modal__input', 'modal__input_disabled');
+  modalInput.type = 'text';
+  modalInput.name = 'discount';
+  modalInput.id = 'discount';
+  modalInput.disabled = true;
+
+  modalDiscount.append(inputCheckbox, modalInput);
+
+  return modalDiscount;
+};
+
+export const createModalFieldName = () => {
+  const modalFieldName = document.createElement('div');
+  modalFieldName.classList.add('modal__field', 'modal__field_name');
+
+  const label = createLabel();
+  label.for = 'name';
+  label.textContent = 'Наименование';
+
+  const input = createInput();
+  input.type = 'text';
+  input.name = 'name';
+  input.id = 'name';
+  input.required = true;
+
+  modalFieldName.append(label, input);
+
+  return modalFieldName;
+};
+
+export const createModalFieldCategory = () => {
+  const modalFieldCategory = document.createElement('div');
+  modalFieldCategory.classList.add('modal__field', 'modal__field_category');
+
+  const label = createLabel();
+  label.for = 'category';
+  label.textContent = 'Категория';
+
+  const input = createInput();
+  input.type = 'text';
+  input.name = 'category';
+  input.id = 'category';
+  input.required = true;
+
+  modalFieldCategory.append(label, input);
+
+  return modalFieldCategory;
+};
+
+export const createModalFieldUnits = () => {
+  const modalFieldUnits = document.createElement('div');
+  modalFieldUnits.classList.add('modal__field', 'modal__field_units');
+
+  const label = createLabel();
+  label.for = 'units';
+  label.textContent = 'Единицы измерения';
+
+  const input = createInput();
+  input.type = 'text';
+  input.name = 'units';
+  input.id = 'units';
+  input.required = true;
+
+  modalFieldUnits.append(label, input);
+
+  return modalFieldUnits;
+};
+
+export const createModalFieldDiscount = () => {
+  const modalFieldDiscount = document.createElement('div');
+  modalFieldDiscount.classList.add('modal__field', 'modal__field_discount');
+
+  const label = createLabel();
+  label.for = 'discount';
+  label.textContent = 'Дисконт';
+
+  const modalDiscount = createModalDiscount();
+
+  modalFieldDiscount.append(label, modalDiscount);
+
+  return modalFieldDiscount;
+};
+
+export const createModalFieldDesc = () => {
+  const modalFieldDesc = document.createElement('div');
+  modalFieldDesc.classList.add('modal__field', 'modal__field_description');
+
+  const label = createLabel();
+  label.for = 'description';
+  label.textContent = 'Описание';
+
+  const textarea = createTextarea();
+  textarea.name = 'description';
+  textarea.id = 'description';
+  textarea.rows = 5;
+  textarea.required = true;
+
+  modalFieldDesc.append(label, textarea);
+
+  return modalFieldDesc;
+};
+
+export const createModalFieldCount = () => {
+  const modalFieldCount = document.createElement('div');
+  modalFieldCount.classList.add('modal__field', 'modal__field_count');
+
+  const label = createLabel();
+  label.for = 'count';
+  label.textContent = 'Количество';
+
+  const input = createInput();
+  input.type = 'number';
+  input.name = 'count';
+  input.id = 'count';
+  input.required = true;
+
+  modalFieldCount.append(label, input);
+
+  return modalFieldCount;
+};
+
+export const createModalFieldPrice = () => {
+  const modalFieldPrice = document.createElement('div');
+  modalFieldPrice.classList.add('modal__field', 'modal__field_price');
+
+  const label = createLabel();
+  label.for = 'price';
+  label.textContent = 'Цена';
+
+  const input = createInput();
+  input.type = 'number';
+  input.name = 'price';
+  input.id = 'price';
+  input.required = true;
+
+  modalFieldPrice.append(label, input);
+
+  return modalFieldPrice;
+};
+
+export const createModalFieldError = () => {
+  const modalFieldError = document.createElement('div');
+  modalFieldError.classList.add('modal__field', 'modal__field_error');
+
+  const text = document.createElement('p');
+  text.textContent = 'Изображение не должно превышать размер 1 Мб';
+
+  modalFieldError.append(text);
+
+  return modalFieldError;
+};
+
+export const createModalFieldFile = () => {
+  const modalFieldFile = document.createElement('div');
+  modalFieldFile.classList.add('modal__field', 'modal__field_file');
+
+  const label = createLabel();
+  label.classList.add('modal__label_file');
+  label.for = 'file';
+  label.textContent = 'Добавить изображение';
+
+  const input = createInput();
+  input.classList.add('modal__input_file');
+  input.type = 'file';
+  input.name = 'file';
+  input.id = 'file';
+
+  modalFieldFile.append(label, input);
+
+  return modalFieldFile;
+};
+
+export const createModalImage = () => {
+  const modalImage = document.createElement('div');
+  modalImage.classList.add('modal__field', 'modal__image');
+
+  const label = createLabel();
+  label.for = 'category';
+  label.textContent = 'Категория';
+
+  const input = createInput();
+  input.type = 'text';
+  input.name = 'category';
+  input.id = 'category';
+  input.required = true;
+
+  modalImage.append(label, input);
+
+  return modalImage;
+};
+
+
+export const createModalBottomBlock = () => {
+  const modalBottomBlock = document.createElement('div');
+  modalBottomBlock.classList.add('modal__bottom-block');
+
+  return modalBottomBlock;
+};
+
+export const createTotalPrice = () => {
+  const totalPrice = document.createElement('p');
+  totalPrice.classList.add('modal__total-price', 'total-price');
+
+  return totalPrice;
+};
+
+export const createTotalPriceText = () => {
+  const createTotalPriceText = document.createElement('span');
+  createTotalPriceText.classList.add('total-price__text');
+  createTotalPriceText.textContent = 'Итоговая стоимость: ';
+
+  return createTotalPriceText;
+};
+
+export const createTotalPriceSum = () => {
+  const totalPriceSum = document.createElement('span');
+  totalPriceSum.classList.add('total-price__sum');
+  totalPriceSum.textContent = '$ 0';
+
+  return totalPriceSum;
+};
+
+export const createModalSubmit = () => {
+  const modalSubmit = document.createElement('button');
+  modalSubmit.type = 'submit';
+  modalSubmit.classList.add('modal__submit');
+  modalSubmit.textContent = 'Добавить товар';
+
+  return modalSubmit;
+};
+
+export const createContainer = () => {
+  const container = document.createElement('div');
+  container.classList.add('container');
+
+  return container;
+};
+
 const createRow = (obj) => {
   const newTr = document.createElement('tr');
   newTr.classList.add('table__row');
@@ -117,9 +506,8 @@ const createRow = (obj) => {
   return newTr;
 };
 
-const addGoodPage = (good) => {
+export const addGoodPage = (good) => {
   const tableBody = document.querySelector('.table__body');
   tableBody.append(createRow(good));
 };
 
-export default addGoodPage;

@@ -1,5 +1,5 @@
 import * as elem from './elements.js';
-import addGoodPage from './create.js';
+import * as create from './create.js';
 import * as controlModal from './modal.js';
 import httpRequest from './serverRequest.js';
 
@@ -38,7 +38,7 @@ const formControl = () => {
           console.warn(err, data);
           controlModal.activeError();
         } else {
-          addGoodPage(data);
+          create.addGoodPage(data);
           elem.totalPriceSum.textContent =
             +(elem.totalPriceSum.textContent) + (data.price * data.count);
           modalReset();
