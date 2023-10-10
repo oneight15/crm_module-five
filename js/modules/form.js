@@ -1,5 +1,4 @@
 import * as elem from './elements.js';
-import calculateTotalPrice from './calculateTotal.js';
 import addGoodPage from './create.js';
 import * as controlModal from './modal.js';
 import httpRequest from './serverRequest.js';
@@ -10,10 +9,6 @@ const modalReset = () => {
   elem.form.discount.classList.add('modal__input_disabled');
   elem.totalPriceModal.textContent = '$ 0';
 };
-
-// const addGoodData = good => {
-//   elem.goods.push(good);
-// };
 
 elem.form.checkbox.addEventListener('click', () => {
   elem.form.discount.toggleAttribute('disabled');
@@ -26,9 +21,6 @@ elem.form.checkbox.addEventListener('click', () => {
 const formControl = () => {
   elem.form.addEventListener('submit', e => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const newGood = Object.fromEntries(formData);
-    // newGood.id = +Math.random().toString().substring(2, 10);
 
     httpRequest('https://grizzled-hip-wedge.glitch.me/api/goods', {
       method: 'POST',
@@ -44,7 +36,6 @@ const formControl = () => {
       callback(err, data) {
         if (err) {
           console.warn(err, data);
-          // elem.form.textContent = err;
           controlModal.activeError();
         } else {
           addGoodPage(data);
@@ -54,15 +45,11 @@ const formControl = () => {
           elem.form.reset();
           controlModal.closeModal();
         }
-
-        // elem.form.textContent = `Това успешно добавлен,  ${data.id}`;
       },
       headers: {
         'Content-Type': 'application/json',
       },
     });
-
-    // addGoodData(newGood);
   });
 };
 
